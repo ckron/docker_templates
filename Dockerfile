@@ -2,16 +2,8 @@ FROM osrf/ros:noetic-desktop-full
 
 MAINTAINER ckron
 
-# refer: https://qiita.com/Riliumph/items/3b09e0804d7a04dff85b
-ENV USER admin
-ENV HOME /home/${USER}
+# for gnu screen
 ENV SHELL /bin/bash
-
-RUN useradd -m ${USER}
-RUN gpasswd -a ${USER} sudo
-RUN echo "${USER}:admin" | chpasswd
-
-## 
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
   git \
