@@ -9,12 +9,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   git \
   vim \
   screen \
-  ngetty \
-  && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p ~/catkin_ws/src && \
-    cd ~/catkin_ws/src && \
-    /bin/bash -c "source /opt/ros/noetic/setup.bash; catkin_init_workspace" && \
-    cd ~/catkin_ws && \
-    /bin/bash -c "source /opt/ros/noetic/setup.bash; catkin_make" && \
-    echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+# install dependency packages
+# RUN apt-get update && apt-get install -y --no-install-recommends \
+# && rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p ~/ros_ws/src && \
+    cd ~/ros_ws/src && \
+    echo "source ~/ros_ws/devel/setup.bash" >> ~/.bashrc
